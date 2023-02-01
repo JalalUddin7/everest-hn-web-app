@@ -15,16 +15,9 @@
         <form method="post" action="{{url_for('dobchecker')}}">
             <div class="col-md-6 mx-auto text-center">
                 <p><strong>Referral ID: </strong> {{referral_id}}</p>
-                <label for="name" class="form-label fw-bold fs-5">Could you please tell me your DOB?</label>
+                <label for="name" class="form-label fw-bold fs-5">Thank you</label>
                 
-                <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                  <input type="hidden" id="referral_id" name="referral_id" value={{referral_id}}>
-                    <input type="date" class="form-control" id="dob" name="dob" style="max-width: 256px;">
-                  </div>            
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
-                  <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Submit</button>
-                </div>            
+                   
             </div>
         </form>
      </main>      

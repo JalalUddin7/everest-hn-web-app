@@ -10,28 +10,27 @@
         <div class="px-4 py-3 my-2 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
             <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-            <h1 class="display-6 fw-bold">Hello {{name}}</h1>
+            <h1 class="display-6 fw-bold">Hello. Your DOB is {{name}}</h1>
             <p class="fs-5">
-                please complete the following questionar
+                Thank you for confirming your date of birth.
             </p>
-
-            <form method="post" action="{{url_for('dobchecker')}}">
+            <p class="fs-5">
+             Please complete the following questions regarding your ENT referral.
+          </p>
+            
+            <form method="post" action="https://prod-24.uksouth.logic.azure.com:443/workflows/4ff2944634c64669a7de11443d59f17c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8NfxEV99abrJ1uRxG0nKB6-C70QYFZnz8Gn4yN5VOyg">
               <div class="col-md-6 mx-auto text-center">
-                  <p><strong>Refferal Id</strong> {{referral_id}}</p>
-                  <label for="name" class="form-label fw-bold fs-5">Have you had any unexpected weight loss in the last 3 months?</label>
-  
-                  <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
+                  <p><strong>Referral ID: </strong>{{referral_id}}</p>
+                  
+                  <label for="person" class="form-label fw-bold fs-5">What is your name?</label>
                   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                      <input type="text" class="form-control" id="dob" name="dob" style="max-width: 256px;">
+                      <input type="text" class="form-control" id="personName" name="personName" style="max-width: 256px;">
                     </div> 
                     
-                    <label for="name" class="form-label fw-bold fs-5">Have you had any unexpected weight loss in the last 3 months?</label>
-  
-                    <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
+                    <label for="test" class="form-label fw-bold fs-5">What is your gender?</label>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                        <input type="text" class="form-control" id="dob" name="dob" style="max-width: 256px;">
+                        <input type="text" class="form-control" id="patientGender" name="patientGender" style="max-width: 256px;">
                       </div> 
-
 
                   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
                     <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Submit</button>

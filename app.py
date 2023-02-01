@@ -10,7 +10,8 @@ def index():
    referral_id = request.args.get("referral_id")
 
    # TODO - 
-   # Lookup referral_id in the SQL DATABASE
+   # Lookup referral_id in the SQL DATABASE (basically, page shouldn't accept referral ID 1 if referral ID 1 does not exist.)
+   # python library sql, jdbc connection, all that jazz.  
   
    # If it exists
    print('Request for index page received')
@@ -25,18 +26,24 @@ def favicon():
 @app.route('/dobchecker', methods=['POST'])
 def dobchecker():
    dob = request.form.get('dob')
-
+   referral_id = request.form.get('referral_id')
    # TODO - 
    #  Check dob entered, with dob from referral_id SQL record
 
    if dob:
        print('Request for hello page received with name=%s' % dob)
-       return render_template('dobchecker.html', name = dob)
+       return render_template('dobchecker.html', name = dob, referral_id = referral_id) 
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
-       return redirect(url_for('index'))
+       return redirect(url_for('thankyou'))
 
 
+
+@app.route('/thankyou')
+def thankyou():
+   # If it exists
+   print('Request for index page received')
+   return render_template('thankyou.html')
 
 
 if __name__ == '__main__':
